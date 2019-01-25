@@ -22,7 +22,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * @author iiii
  *
  */
-public class JobSubmitter {
+public class JobSubmitterWindowsToYarn {
 
 	public static void main(String[] args) throws Exception {
 		
