@@ -10,8 +10,12 @@
 	* [上传jar包到hadoop 节点运行](#上传jar包到hadoop-节点运行)
 * [local模式](#local模式)
 * [报错汇总](#报错汇总)
-
-
+* [对mapreduce1-5功能做描述](#对mapreduce1-5功能做描述)
+	* [mapreduce1](#mapreduce1)
+	* [mapreduce2](#mapreduce2)
+	* [mapreduce3](#mapreduce3)
+	* [mapreduce4](#mapreduce4)
+	* [mapreduce5](#mapreduce5)
 
 MapReduce写完之后，跟单机环境不同，需要在yarn环境下运行。 
 yarn是分布式系统，也有很多服务进程。
@@ -211,5 +215,21 @@ job没有连接到hdfs，而是连接到了本地文件。
 
 
 
+# 对mapreduce1-5功能做描述
+
+## mapreduce1
+  实现简单的wordcount功能
+  
+## mapreduce2
+  实现流量统计功能，统计手机号对应的上行流量和下行流量
+  
+## mapreduce3
+  实现页面访问次数 topn
+  
+## mapreduce4
+  多次mapreduce协作工作
+  
+## mapreduce5
+  实现流量统计自定义结果文件分区规则，比如按照省份分，每个省份一个文件。
 
 
