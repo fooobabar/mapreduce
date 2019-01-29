@@ -1,4 +1,24 @@
 这个是自己完成的作业，肯定有很多垃圾代码和垃圾算法。
+问题如下：
+A:B,C,D,F,E,O
+B:A,C,E,K
+C:F,A,D,I
+D:A,E,F,L
+E:B,C,D,M,L
+F:A,B,C,D,E,O,M
+G:A,C,D,E,F
+H:A,C,D,E,O
+I:A,O
+J:B,O
+K:A,C,D
+L:D,E,F
+M:E,F,G
+O:A,H,I,J
+
+
+求：哪些用户两两之间有共同好友，及共同好友都是哪些人
+A-B  C,E
+A-C  D,F
 
 
 
