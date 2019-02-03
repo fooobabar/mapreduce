@@ -1,21 +1,4 @@
-* [启动 yarn集群](#启动-yarn集群)
-	* [1.修改 yarn-site.xml，复制到其他节点](#1修改-yarn-sitexml复制到其他节点)
-	* [2. 启动yarn集群](#2-启动yarn集群)
-* [通过API添加任务到Yarn中](#通过api添加任务到yarn中)
-	* [1. 导包到工程中](#1-导包到工程中)
-	* [3. 设置yarn参数](#3-设置yarn参数)
-	* [4. 设置job参数](#4-设置job参数)
-	* [5. 从操作系统找到结果文件](#5-从操作系统找到结果文件)
-	* [hadoop官方文档中对 mapred-default.xml 配置的描述](#hadoop官方文档中对-mapred-defaultxml-配置的描述)
-	* [上传jar包到hadoop 节点运行](#上传jar包到hadoop-节点运行)
-* [local模式](#local模式)
-* [报错汇总](#报错汇总)
-* [对mapreduce1-5功能做描述](#对mapreduce1-5功能做描述)
-	* [mapreduce1](#mapreduce1)
-	* [mapreduce2](#mapreduce2)
-	* [mapreduce3](#mapreduce3)
-	* [mapreduce4](#mapreduce4)
-	* [mapreduce5](#mapreduce5)
+
 
 MapReduce写完之后，跟单机环境不同，需要在yarn环境下运行。 
 yarn是分布式系统，也有很多服务进程。
@@ -235,4 +218,9 @@ job没有连接到hdfs，而是连接到了本地文件。
 ## mapreduce6
  倒排索引创建练习，了解如何在map中获取切片文件的信息，比如路径，文件名等等
  
+## mapreduce7
+ 练习自定义对象排序
+ 
+## mapreduce8
+学习sequence文件的使用
 
