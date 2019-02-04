@@ -227,7 +227,7 @@ job没有连接到hdfs，而是连接到了本地文件。
 ## mapreduce9
 学习sequence文件的使用
 
-# Mapreduce 欧诺个街
+# Mapreduce 总结
 
 ## 两个核心点：
 ### mapreduce编程模型
