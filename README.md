@@ -222,5 +222,51 @@ job没有连接到hdfs，而是连接到了本地文件。
  练习自定义对象排序
  
 ## mapreduce8
+练习 Partitioner 中的getPartition() 方法
+
+## mapreduce9
 学习sequence文件的使用
 
+# Mapreduce 欧诺个街
+
+## 两个核心点：
+### mapreduce编程模型
+
+  把数据运算流程分成2个阶段：
+  * 阶段1：读取原始数据，形成Key-Value 数据（map方法）
+  * 阶段2：将阶段1的Key-Value数据按照相同Key分组聚合（reduce方法）
+
+### mapreduce编程模型的具体实现
+  * hadoop中的mapreduce框架，第一阶段是map task，第二阶段是reduce task
+
+## map task
+
+  ### 读数据
+  * InputFormat --> TextInputFormat  读取文本文件
+  * InputFormat --> SequenceFileInputFormat 读sequence文件
+  * InputFormat --> DBInputFormat 读数据库
+
+  ### 处理数据（自己处理）
+ map task通过调用Mapper类的map() 方法，实现对数据的处理，这块代码是我们自己实现的。
+
+  ### 分区
+  将map阶段产生的Key-Value数据，分发给若干个reduce task来分担负载。一个reduce可以处理很多组，也可以只处理一组。map task会调用Partitioner类的getPartition() 方法来决定如何划分数据给不同的reduce task。
+  
+  ### 对Key-Value做排序
+  调用key.conpareTo() 方法来实现对Key-Value 数据排序。修改Key的compareTo方法，可以修改排序规则。
+
+## reduce task
+
+  ### 读数据
+  通过http方式，从maptask产生的数据文件中，下载属于自己的“区” 的数据。比如，0号reduce下载0号区的数据。
+  然后将多个maptask 中获取到相同“区” 的文件内容做合并，合并的同时，对同一个“区”中的内容再进行排序。比如，从3个map task中读取到3组0号区的数据，那么需要对这3组数据进行排序。 
+  
+  ### 处理数据
+  通过调用GroupingComparator的compare()方法，来判断文件中的那些key-value属于同一组。然后将这一组数据传给Reducer类的reduce() 方法聚合一次。
+  
+  ### 输出结果
+  调用OutputFormat组件将结果key-value数据写出去。
+  OutputFormat  --> TextOutputFormat 写文本文件（一对Key-Value写一行，分隔符用\t）
+  OutputFormat  --> SequenceFileOutputFormat 写Sequence文件（直接将Key-Value对象序列化到这个文件中）
+  OutputFormat  --> DBOutputFormat 写数据库，一般不会去往数据库里写，都是先存放到HDFS中，然后通过sqoop搞到数据库中。 
+  

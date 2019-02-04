@@ -1,4 +1,4 @@
-package mapreduce8indexsequence;
+package mapreduce9indexsequence;
 
 import java.io.IOException;
 
