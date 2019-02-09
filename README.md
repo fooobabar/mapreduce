@@ -227,6 +227,15 @@ job没有连接到hdfs，而是连接到了本地文件。
 ## mapreduce9
 学习sequence文件的使用
 
+## mapreduce10
+了解join方法
+
+## mapreduce11
+使用Combiner 处理数据倾斜
+
+## mapreduce12
+打散key+多次mr任务，处理数据倾斜
+
 # Mapreduce 总结
 
 ## 两个核心点：

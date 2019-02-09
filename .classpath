@@ -40,7 +40,7 @@
 	<classpathentry kind="lib" path="lib/hadoop-hdfs-client-2.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-app-2.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-common-2.8.5.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-2.8.5.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-2.8.5.jar" sourcepath="E:/ftp/install/apache-hadoop/hadoop-2.8.5-src"/>
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-hs-2.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-hs-plugins-2.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-jobclient-2.8.5-tests.jar"/>
