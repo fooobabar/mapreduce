@@ -43,7 +43,7 @@ yarn的所有节点软件，都在hadoop的安装包中。下面是各个节点�
 
 ## 2. 启动yarn集群
 
- **分为两种启动方式，一种是使用yarn-daemon指定角色启动，另外一种是自动启动**
+ **分为两种启动方式，一种是使用yarn-daemon指定角色启动，另外一种是自动启动，两种任选一种**
  
 1. 第一种：每个节点手工启动
 
@@ -94,7 +94,7 @@ mapreduce 目录下的jar包
 yarn 目录下的jar包
 ```
 
-## 3. 设置yarn参数
+## 2. 设置yarn参数
 
 使用Configuration 设置参数
  1. __fs.defaultFS__ 设置job运行时要访问的默认文件系统，指定为HDFS
@@ -103,7 +103,7 @@ yarn 目录下的jar包
  4. __mapreduce.app-submission.cross-platform__ 设置跨平台提交，如果是Windows平台运行main方法，则需要设置这个参数
 
 
-## 4. 设置job参数
+## 3. 设置job参数
 
 生成job对象
 Job job = Job.getInstance(conf);
@@ -120,7 +120,7 @@ Job job = Job.getInstance(conf);
 11. __job.waitForCompletion(true);__ 向yarn 提交本次job
 
  
- ## 5. 从操作系统找到结果文件
+ ## 4. 从操作系统找到结果文件
  
  ```Shell
  [root@hdp-01 hadoop]# hadoop fs -ls /wordcount
@@ -188,53 +188,6 @@ mr有两种运行环境，一种是yarn一种是local，local不需要连接yarn
 
 好处，测试，debug
 
-# 报错汇总
-```Java
-Exception in thread "main" org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: file:/wordcount/input
-```
-重点不在路径不存在，而是在 file:/wordcount/input ，这里的file出卖了这句报错，说明我前面参数设置的有问题，
-job没有连接到hdfs，而是连接到了本地文件。
-解决方法是要检查conf参数。
-
-
-
-# 对mapreduce各个包的功能描述
-
-## mapreduce1
-  实现简单的wordcount功能
-  
-## mapreduce2
-  实现流量统计功能，统计手机号对应的上行流量和下行流量
-  
-## mapreduce3
-  实现页面访问次数 topn
-  
-## mapreduce4
-  多次mapreduce协作工作
-  
-## mapreduce5
-  实现流量统计自定义结果文件分区规则，比如按照省份分，每个省份一个文件。
-
-## mapreduce6
- 倒排索引创建练习，了解如何在map中获取切片文件的信息，比如路径，文件名等等
- 
-## mapreduce7
- 练习自定义对象排序
- 
-## mapreduce8
-练习 Partitioner 中的getPartition() 方法
-
-## mapreduce9
-学习sequence文件的使用
-
-## mapreduce10
-了解join方法
-
-## mapreduce11
-使用Combiner 处理数据倾斜
-
-## mapreduce12
-打散key+多次mr任务，处理数据倾斜
 
 # Mapreduce 总结
 
